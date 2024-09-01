@@ -1,10 +1,28 @@
 class ProductsController < ApplicationController
-  def test_app
-    render json: {message: "hello"}
+  def index
+    @products = Product.all
+    render template: "products/index"
   end
-
-  def product_one
-    @product = Product.find_by(id: 1)
+  
+  
+  def show
+    @product = Product.find_by(id: params[:id])
     render template: "products/show"
   end
+
+  # def price
+  #   @product = Product.find_by(price: params[:price])
+  #   render template: "products/show"
+  # end
+  def create
+    @product = Product.new(
+      name: params[:name],
+      price: params[:price],
+      image_url: params[:image_url],
+      description: params[:description]
+      )
+      @product.save
+      render template: "products/show"
+    end
+
 end
