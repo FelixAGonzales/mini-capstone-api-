@@ -21,9 +21,14 @@ class ProductsController < ApplicationController
       image_url: params[:image_url],
       description: params[:description]
       )
-      @product.save
-      render template: "products/show"
+      if @product.save
+        render :show
+      else
+        render json: { errors: @product.errors.full_messages }
+      end
+      # render template: "products/show"
   end
+
 
   def update
     @product = Product.find_by(id: params[:id])
