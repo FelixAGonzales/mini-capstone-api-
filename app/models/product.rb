@@ -10,7 +10,7 @@ class Product < ApplicationRecord
     if price == nil
       price = 0
     end
-    if price < 11
+    if price.to_i <= 11
       return true
     else
       return false
@@ -23,7 +23,7 @@ class Product < ApplicationRecord
   end
 
   def total
-    tax = price * 0.09
+    tax = price.to_i * 0.09
     total = tax + price
     p "The total (including tax) is: $#{total}"
   end
