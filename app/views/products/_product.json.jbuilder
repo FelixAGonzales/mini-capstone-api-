@@ -8,3 +8,7 @@ json.updated_at product.updated_at
 json.is_discounted? product.is_discounted?
 json.tax product.tax
 json.total product.total
+json.id supplier.id
+json.name supplier.name
+json.email supplier.email
+json.phone_number supplier.phone_number
