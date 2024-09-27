@@ -3,8 +3,12 @@ class ProductsController < ApplicationController
     p "HEREEEEEE"
     pp current_user
     p "HEREEEEEE"
-    @products = Product.all
+    if current_user
+      @products = Product.all
     render template: "products/index"
+    else
+      render json: []
+    end
   end
   
   
