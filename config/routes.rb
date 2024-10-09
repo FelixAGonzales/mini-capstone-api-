@@ -19,8 +19,11 @@ Rails.application.routes.draw do
   get "/users/:id" => "users#show"
   
   post "/sessions" => "sessions#create"
-  # get "/products/:price" => "products#show"
 
+  get "/category_products" => "category_products#index"
+  post "/category_products" => "category_products#create"
+  # get "/products/:price" => "products#show"
+  
   # Defines the root path route ("/")
   # root "posts#index"
 end
