@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception, unless: -> { request.format.json? }
 
   def current_user
-    User.first
+    User.last
     # auth_headers = request.headers["Authorization"]
     # if auth_headers.present? && auth_headers[/(?<=\A(Bearer ))\S+\z/]
     #   token = auth_headers[/(?<=\A(Bearer ))\S+\z/]
